@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="transport.ui.MainViewController" stylesheets="@style.css">
+
+    <top>
+        <StackPane style="-fx-background-color: #2c3e50;">
+            <Label text="ESI-RUN Transport System" style="-fx-text-fill: white; -fx-font-size: 24; -fx-padding: 15;">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+        </StackPane>
+    </top>
+
+    <left>
+        <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa;">
+            <Button text="Manage Users" styleClass="menu-button" onAction="#showUserManagement"/>
+            <Button text="Buy Tickets" styleClass="menu-button" onAction="#showTicketPurchase"/>
+            <Button text="Validate Tickets" styleClass="menu-button" onAction="#showValidation"/>
+            <Button text="Complaints" styleClass="menu-button" onAction="#showComplaints"/>
+            <Button text="Purchase Fare Medium" styleClass="menu-button" onAction="#handlePurchaseFareMedium"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea">
+            <!-- Default home view -->
+            <VBox alignment="CENTER" spacing="20">
+                <Label text="Welcome to ESI-RUN Transport System" style="-fx-font-size: 18;"/>
+                <Label text="Please select an option from the left menu"/>
+            </VBox>
+
+            <!-- User Management View -->
+            <VBox fx:id="userManagementView" visible="false" spacing="15" style="-fx-padding: 20;">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="Add New User" onAction="#showUserForm"/>
+                    <Button text="Show All Users" onAction="#handleShowUsers"/>
+                </HBox>
+
+                <GridPane fx:id="userForm" visible="false" hgap="10" vgap="10">
+                    <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="txtFirstName" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtLastName" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Birth Date:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <DatePicker fx:id="dateBirthDate" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <CheckBox fx:id="chkHandicap" text="Has Disability" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Employee ID (optional):" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="txtEmployeeId" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                    <Label text="Employee Type:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <ComboBox fx:id="cmbEmployeeType" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                    <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <Button text="Save User" onAction="#handleAddUser"/>
+                        <Button text="Cancel" onAction="#hideUserForm"/>
+                    </HBox>
+                </GridPane>
+
+                <TextArea fx:id="txtUsersOutput" editable="false" style="-fx-font-family: monospace;"/>
+            </VBox>
+
+            <!-- Ticket Purchase View -->
+            <VBox fx:id="ticketPurchaseView" visible="false" spacing="15" style="-fx-padding: 20;">
+                <Label text="Fare Media Management" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" minWidth="150"/>
+                        <ColumnConstraints halignment="LEFT" minWidth="200"/>
+                    </columnConstraints>
+
+                    <!-- User Selection for Cards -->
+                    <Label text="Select User:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <ComboBox fx:id="cmbCardUser" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <!-- Ticket Section -->
+                    <Label text="Single Ticket:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button text="Purchase Ticket (50 DA)" onAction="#handleBuyTicket" style="-fx-base: #27ae60; -fx-text-fill: white;"/>
+                        <Label text="Valid for one journey on purchase date"/>
+                    </HBox>
+
+                    <!-- Card Section -->
+                  
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        
+                    </VBox>
+
+                    <!-- Display Section -->
+                    <Label text="Current Fare Media:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <HBox spacing="10">
+                            <Button text="Show All Tickets" onAction="#handleShowTickets" style="-fx-base: #34495e; -fx-text-fill: white;"/>
+                            <Button text="Show All Cards" onAction="#handleShowCards" style="-fx-base: #34495e; -fx-text-fill: white;"/>
+                        </HBox>
+                    </VBox>
+                </GridPane>
+
+                <TextArea fx:id="txtTicketsOutput" editable="false" style="-fx-font-family: monospace;" styleClass="output-area"/>
+            </VBox>
+
+            <!-- Validation View -->
+            <VBox fx:id="validationView" visible="false" spacing="15" style="-fx-padding: 20;">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="txtValidateId" promptText="Enter Ticket/Card ID" style="-fx-pref-width: 200;"/>
+                    <Button text="Validate" onAction="#handleValidate"/>
+                </HBox>
+                <TextArea fx:id="txtValidationOutput" editable="false" style="-fx-font-family: monospace;"/>
+            </VBox>
+
+            <!-- Complaints View -->
+            <VBox fx:id="complaintsView" visible="false" spacing="15" style="-fx-padding: 20;">
+                <Button text="Show All Complaints" onAction="#handleShowComplaints"/>
+                <Button text="Add New Complaint" onAction="#showComplaintForm"/>
+
+                <GridPane fx:id="complaintForm" visible="false" hgap="10" vgap="10">
+                    <Label text="Reporter:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <ComboBox fx:id="cmbReporter" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Type:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <ComboBox fx:id="cmbComplaintType" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Target:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtComplaintTarget" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="txtComplaintDesc" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Button text="Submit" onAction="#handleAddComplaint"/>
+                        <Button text="Cancel" onAction="#hideComplaintForm"/>
+                    </HBox>
+                </GridPane>
+
+                <TextArea fx:id="txtComplaintsOutput" editable="false" style="-fx-font-family: monospace;"/>
+            </VBox>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <Label text="© 2024 ESI-RUN Transport System" alignment="CENTER" 
+               style="-fx-padding: 10; -fx-text-fill: #7f8c8d;"/>
+    </bottom>
+</BorderPane>

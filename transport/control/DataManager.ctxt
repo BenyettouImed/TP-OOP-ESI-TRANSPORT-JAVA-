@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=DataManager
+comment1.params=persons
+comment1.target=void\ savePersons(java.util.List)
+comment2.params=
+comment2.target=java.util.List\ loadPersons()
+comment3.params=fareMedia
+comment3.target=void\ saveFareMedia(java.util.List)
+comment4.params=
+comment4.target=java.util.List\ loadFareMedia()
+comment5.params=complaints
+comment5.target=void\ saveComplaints(java.util.List)
+comment6.params=
+comment6.target=java.util.List\ loadComplaints()
+numComments=7

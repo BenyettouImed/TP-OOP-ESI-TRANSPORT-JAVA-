@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=TitreTransport
+comment1.params=prix
+comment1.target=TitreTransport(double)
+comment2.params=
+comment2.target=int\ getId()
+comment3.params=
+comment3.target=java.time.LocalDate\ getDateAchat()
+comment4.params=
+comment4.target=double\ getPrix()
+comment5.params=date
+comment5.target=boolean\ estValide(java.time.LocalDate)
+comment6.params=out
+comment6.target=void\ writeObject(java.io.ObjectOutputStream)
+comment7.params=in
+comment7.target=void\ readObject(java.io.ObjectInputStream)
+numComments=8

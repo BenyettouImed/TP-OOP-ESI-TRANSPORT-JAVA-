@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Usager
+comment1.params=nom\ prenom\ dateNaissance\ handicap
+comment1.target=Usager(java.lang.String,\ java.lang.String,\ java.time.LocalDate,\ boolean)
+comment2.params=
+comment2.target=int\ getId()
+comment3.params=out
+comment3.target=void\ writeObject(java.io.ObjectOutputStream)
+comment4.params=in
+comment4.target=void\ readObject(java.io.ObjectInputStream)
+numComments=5

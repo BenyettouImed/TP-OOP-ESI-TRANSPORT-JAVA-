@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=TitreNonValideException
+comment1.params=message
+comment1.target=TitreNonValideException(java.lang.String)
+comment2.params=message\ cause
+comment2.target=TitreNonValideException(java.lang.String,\ java.lang.Throwable)
+numComments=3

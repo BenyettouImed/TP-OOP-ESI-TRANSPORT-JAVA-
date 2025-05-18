@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=CartePersonnelle
+comment1.params=proprietaire
+comment1.target=CartePersonnelle(Person)
+comment2.params=p
+comment2.target=double\ calculerPrix(Person)
+comment3.params=p
+comment3.target=CartePersonnelle.CarteType\ determinerTypeCarte(Person)
+comment4.params=date
+comment4.target=boolean\ estValide(java.time.LocalDate)
+comment5.params=
+comment5.target=java.lang.String\ getInfoCarte()
+comment6.params=
+comment6.target=Person\ getProprietaire()
+comment7.params=
+comment7.target=CartePersonnelle.CarteType\ getType()
+numComments=8

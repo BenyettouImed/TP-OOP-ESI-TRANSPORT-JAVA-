@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Person
+comment1.params=nom\ prenom\ dateNaissance\ handicap
+comment1.target=Person(java.lang.String,\ java.lang.String,\ java.time.LocalDate,\ boolean)
+comment2.params=
+comment2.target=java.lang.String\ getNom()
+comment3.params=
+comment3.target=java.lang.String\ getPrenom()
+comment4.params=
+comment4.target=java.time.LocalDate\ getDateNaissance()
+comment5.params=
+comment5.target=boolean\ isHandicap()
+comment6.params=
+comment6.target=int\ getAge()
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8

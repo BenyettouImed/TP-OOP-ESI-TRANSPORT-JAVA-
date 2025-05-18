@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Ticket
+comment1.params=
+comment1.target=Ticket()
+comment2.params=date
+comment2.target=boolean\ estValide(java.time.LocalDate)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

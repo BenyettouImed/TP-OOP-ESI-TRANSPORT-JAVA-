@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Employee
+comment1.params=nom\ prenom\ dateNaissance\ handicap\ matricule\ fonction
+comment1.target=Employee(java.lang.String,\ java.lang.String,\ java.time.LocalDate,\ boolean,\ java.lang.String,\ TypeFunction)
+comment2.params=
+comment2.target=java.lang.String\ getMatricule()
+comment3.params=
+comment3.target=TypeFunction\ getFonction()
+numComments=4
